@@ -3,8 +3,8 @@
 This application was created to illustrate an issue encountered when using the `grails-logging` plugin.
 
 ## Issue
-When using the `grails-logging` plugin, we cannot use the Spring Boot `loggers` actuator endpoint to dynamically 
-set a Log4J2 log level.  
+When using the `grails-logging` plugin, we cannot use the Spring Boot `loggers` actuator endpoint to use a 
+Log4J2 log level that has been dynamically set. Static Log4J2 logger configuration works fine.  
 
 ## Setup
 
