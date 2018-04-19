@@ -1,0 +1,39 @@
+Configuration:
+  status: debug # level of internal Log4j events that should be logged to the console
+  monitorInterval: 60 # Reload log configuration every 60 seconds
+
+  Properties:
+    Property:
+      - name: app-name
+        value: ${sys:info.app.name}
+      - name: console-log-pattern
+        value: "%clr{%d{yyyy-MM-dd HH:mm:ss.SSS}}{faint} %clr{%5p} %clr{${app-name}}{magenta} ${ip-address} %clr{---}{faint} %clr{[%15.15t]}{faint} %clr{%c}{cyan} %clr{:}{faint} %m%n%xEx" # ${sys:CONSOLE_LOG_PATTERN}
+      - name: ip-address
+        value: ${sys:IP_ADDRESS}
+
+  Appenders:
+    Console:
+      name: Console
+      target: SYSTEM_OUT
+      PatternLayout:
+        Pattern: ${console-log-pattern}
+
+  Loggers:
+    Root:
+      level: WARN
+      AppenderRef:
+        - ref: Console
+
+    logger:
+      -
+        name:  demo.logging
+        level: INFO
+        additivity: false
+        AppenderRef:
+          - ref: Console
+      -
+        name:  demo.logging.AnotherLogEmitter
+        level: DEBUG
+        additivity: false
+        AppenderRef:
+          - ref: Console
