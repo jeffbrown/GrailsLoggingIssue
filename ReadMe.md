@@ -6,7 +6,7 @@ An error message from `LoggingController` should show on the server's console.
 
 Set the log level to `TRACE`:
 
-    curl -i -X POST -H 'Content-Type: application/json' -d '{"configuredLevel": "TRACE"}' hocalhost:8080/loggers/demo.logging.LoggingController
+    curl -i -X POST -H 'Content-Type: application/json' -d '{"configuredLevel": "TRACE"}' http://localhost:8080/loggers/demo.logging.LoggingController
     
 Send the request to `/logging` again and you should see both a log and a trace log message.
 
