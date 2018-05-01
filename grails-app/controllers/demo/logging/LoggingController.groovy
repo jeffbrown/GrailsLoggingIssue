@@ -1,19 +1,15 @@
 package demo.logging
 
-import demo.LogHelper
 import groovy.util.logging.Slf4j
 
-// TODO: Comment out the following after uncommenting the grails-logging plugin in build.gradle
 @Slf4j
-class LoggingController implements LogHelper {
-
-    static responseFormats = ['json']
+class LoggingController {
 
     def index() {
-        log()
 
-        new AnotherLogEmitter().doSomeLogging()
+        log.trace 'This is a trace message'
+        log.error 'This is an error message'
 
-        respond([message: 'done'])
+        render 'Success'
     }
 }

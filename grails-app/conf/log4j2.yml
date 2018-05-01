@@ -31,9 +31,3 @@ Configuration:
         additivity: false
         AppenderRef:
           - ref: Console
-      -
-        name:  demo.logging.AnotherLogEmitter
-        level: DEBUG
-        additivity: false
-        AppenderRef:
-          - ref: Console
